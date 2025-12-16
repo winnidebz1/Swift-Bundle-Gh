@@ -373,9 +373,6 @@ body {
     max-height: 100%;
     object-fit: contain;
     animation: fadeInUp 0.8s ease-out;
-    mix-blend-mode: screen;
-    opacity: 0.95;
-    filter: saturate(1.1) brightness(1.05);
 }
 
 @media (max-width: 768px) {
