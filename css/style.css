@@ -467,7 +467,7 @@ body {
     padding: var(--space-xl) var(--space-lg);
     position: relative;
     z-index: 2;
-    margin-top: -100px;
+    margin-top: -50px;
 }
 
 .section-header {
