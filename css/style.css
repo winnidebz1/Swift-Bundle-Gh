@@ -377,10 +377,10 @@ body {
 
 @media (max-width: 768px) {
     .hero {
-        padding: var(--space-xl) var(--space-lg);
+        padding: var(--space-lg) var(--space-md);
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-lg);
+        grid-template-columns: 1.2fr 1fr;
+        gap: var(--space-md);
         align-items: center;
     }
 
@@ -389,56 +389,87 @@ body {
     }
 
     .hero-tagline {
-        font-size: 0.625rem;
-        margin-bottom: var(--space-xs);
+        font-size: 0.5625rem;
+        margin-bottom: 0.25rem;
+        letter-spacing: 0.05em;
     }
 
     .hero-title {
-        font-size: 1.5rem;
-        line-height: 1.1;
-        margin-bottom: var(--space-sm);
+        font-size: 1.25rem;
+        line-height: 1.15;
+        margin-bottom: 0.375rem;
     }
 
     .hero-subtitle {
-        font-size: 0.75rem;
-        margin-bottom: var(--space-md);
-        line-height: 1.4;
+        font-size: 0.6875rem;
+        margin-bottom: var(--space-sm);
+        line-height: 1.35;
     }
 
     .hero-cta {
         flex-direction: column;
-        gap: var(--space-xs);
+        gap: 0.375rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.625rem 1rem;
+        font-size: 0.75rem;
+        min-height: 40px;
+        width: 100%;
     }
 
     .hero-visual {
         order: 2;
-        height: 300px;
+        height: 280px;
         margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .hero-image {
         max-width: 100%;
         max-height: 100%;
+        object-fit: contain;
     }
 }
 
 /* Small mobile devices */
 @media (max-width: 480px) {
     .hero {
-        padding: var(--space-md);
+        padding: var(--space-md) var(--space-sm);
         gap: var(--space-sm);
+        grid-template-columns: 1.3fr 1fr;
+    }
+
+    .hero-tagline {
+        font-size: 0.5rem;
     }
 
     .hero-title {
-        font-size: 1.25rem;
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
     }
 
     .hero-subtitle {
+        font-size: 0.625rem;
+        margin-bottom: 0.375rem;
+    }
+
+    .hero-cta {
+        gap: 0.25rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.5rem 0.75rem;
         font-size: 0.6875rem;
+        min-height: 36px;
     }
 
     .hero-visual {
-        height: 250px;
+        height: 240px;
     }
 }
 
