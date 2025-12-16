@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SwiftBundle Ghana Admin Panel - Manage your data reselling business">
+    <title>Admin Panel - SwiftBundle Ghana</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6C5CE7;
+            --primary-dark: #5B4BC4;
+            --success: #00D68F;
+            --warning: #FFAA00;
+            --error: #FF3860;
+            --gray-900: #1A1A1A;
+            --gray-800: #2D2D2D;
+            --gray-700: #404040;
+            --gray-600: #666666;
+            --gray-200: #E6E6E6;
+            --gray-100: #F5F5F5;
+            --white: #FFFFFF;
+            --font-primary: 'Inter', sans-serif;
+            --font-display: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: var(--gray-100);
+            color: var(--gray-900);
+        }
+
+        .admin-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .admin-header {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .admin-header h1 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-header p {
+            color: var(--gray-600);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .stat-change.positive {
+            color: var(--success);
+        }
+
+        .stat-change.negative {
+            color: var(--error);
+        }
+
+        .admin-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--gray-900);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .network-controls {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .network-control {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+        }
+
+        .network-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .network-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .network-name {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 32px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--gray-200);
+            transition: 0.3s;
+            border-radius: 32px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 24px;
+            width: 24px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: var(--success);
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(28px);
+        }
+
+        .transactions-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .transactions-table th {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gray-200);
+            font-weight: 600;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        .transactions-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-badge.success {
+            background: #B8F5E3;
+            color: #00D68F;
+        }
+
+        .status-badge.pending {
+            background: #FFE8B3;
+            color: #FFAA00;
+        }
+
+        .status-badge.failed {
+            background: #FFD4DD;
+            color: #FF3860;
+        }
+
+        @media (max-width: 768px) {
+            .admin-container {
+                padding: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .transactions-table {
+                font-size: 0.875rem;
+            }
+
+            .transactions-table th,
+            .transactions-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>⚡ SwiftBundle Ghana Admin</h1>
+            <p>Manage your data reselling business</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Revenue</div>
+                <div class="stat-value">GH₵ 0.00</div>
+                <div class="stat-change positive">↑ 0% from last month</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Total Transactions</div>
+                <div class="stat-value">0</div>
+                <div class="stat-change positive">↑ 0 this week</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Active Users</div>
+                <div class="stat-value">0</div>
+                <div class="stat-change positive">↑ 0 new today</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Success Rate</div>
+                <div class="stat-value">100%</div>
+                <div class="stat-change positive">↑ 0% improvement</div>
+            </div>
+        </div>
+
+        <div class="admin-section">
+            <div class="section-header">
+                <h2 class="section-title">Network Management</h2>
+            </div>
+
+            <div class="network-controls">
+                <div class="network-control">
+                    <div class="network-info">
+                        <div class="network-logo" style="background: #FFCC00; color: #1A1A1A;">MTN</div>
+                        <div>
+                            <div class="network-name">MTN Ghana</div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">6 bundles available</div>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="network-control">
+                    <div class="network-info">
+                        <div class="network-logo" style="background: #E74C3C; color: white;">TC</div>
+                        <div>
+                            <div class="network-name">Telecel Ghana</div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">6 bundles available</div>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="network-control">
+                    <div class="network-info">
+                        <div class="network-logo" style="background: #ED1C24; color: white;">AT</div>
+                        <div>
+                            <div class="network-name">AirtelTigo</div>
+                            <div style="font-size: 0.875rem; color: var(--gray-600);">6 bundles available</div>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-section">
+            <div class="section-header">
+                <h2 class="section-title">Recent Transactions</h2>
+                <button class="btn">Export Report</button>
+            </div>
+
+            <table class="transactions-table">
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Network</th>
+                        <th>Bundle</th>
+                        <th>Phone</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionsTableBody">
+                    <tr>
+                        <td colspan="7" style="text-align: center; padding: 3rem; color: var(--gray-600);">
+                            No transactions yet
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Load transactions from localStorage
+        function loadTransactions() {
+            const transactions = JSON.parse(localStorage.getItem('swiftbundle_transactions') || '[]');
+            const tbody = document.getElementById('transactionsTableBody');
+
+            if (transactions.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" style="text-align: center; padding: 3rem; color: var(--gray-600);">
+                            No transactions yet
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = transactions.map(tx => `
+                <tr>
+                    <td style="font-family: monospace; font-size: 0.875rem;">${tx.id}</td>
+                    <td>${tx.network}</td>
+                    <td>${tx.title}</td>
+                    <td>-</td>
+                    <td style="font-weight: 600;">GH₵ ${tx.amount.toFixed(2)}</td>
+                    <td><span class="status-badge success">${tx.status}</span></td>
+                    <td style="font-size: 0.875rem; color: var(--gray-600);">${tx.date}</td>
+                </tr>
+            `).join('');
+
+            // Update stats
+            updateStats(transactions);
+        }
+
+        function updateStats(transactions) {
+            const totalRevenue = transactions.reduce((sum, tx) => sum + tx.amount, 0);
+            const totalTransactions = transactions.length;
+
+            document.querySelector('.stat-card:nth-child(1) .stat-value').textContent = `GH₵ ${totalRevenue.toFixed(2)}`;
+            document.querySelector('.stat-card:nth-child(2) .stat-value').textContent = totalTransactions;
+        }
+
+        // Load on page load
+        loadTransactions();
+
+        // Refresh every 5 seconds
+        setInterval(loadTransactions, 5000);
+
+        // Network toggle handlers
+        document.querySelectorAll('.toggle-switch input').forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                const networkControl = e.target.closest('.network-control');
+                const networkName = networkControl.querySelector('.network-name').textContent;
+
+                if (e.target.checked) {
+                    alert(`${networkName} enabled`);
+                } else {
+                    alert(`${networkName} disabled`);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

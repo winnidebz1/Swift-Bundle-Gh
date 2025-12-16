@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description"
+        content="SwiftBundle GH - Fast data. No delays. Affordable data bundles for Ghana's top networks.">
+    <meta name="theme-color" content="#D946EF">
+
+    <title>SwiftBundle GH - Fast data. No delays.</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- App Container -->
+    <div class="app-container">
+
+        <!-- Top Navigation -->
+        <header class="top-nav">
+            <div class="nav-content">
+                <div class="brand">
+                    <div class="brand-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="url(#gradient1)" />
+                            <defs>
+                                <linearGradient id="gradient1" x1="3" y1="2" x2="13" y2="22">
+                                    <stop offset="0%" stop-color="#D946EF" />
+                                    <stop offset="100%" stop-color="#F0ABFC" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <span class="brand-name">SwiftBundle <span class="brand-gh">GH</span></span>
+                </div>
+                <div class="nav-actions">
+                    <button class="btn-wallet" id="walletBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="6" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" />
+                            <circle cx="16" cy="13" r="2" fill="currentColor" />
+                        </svg>
+                        <span class="wallet-amount">GH₵ 0</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <p class="hero-tagline">⚡ Your Affordable Data Plug</p>
+                    <h1 class="hero-title">
+                        Buy and receive data<br>
+                        <span class="gradient-text">instantly!</span>
+                    </h1>
+                    <p class="hero-subtitle">Use all your favorite social media apps without worrying about data
+                        shortage.</p>
+
+                    <div class="hero-cta">
+                        <button class="btn-primary" id="buyDataBtn">
+                            <span>Buy Data Now</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </button>
+                        <button class="btn-secondary" id="createAccountBtn">
+                            Create Account
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <img src="assets/images/hero-image.png" alt="Happy customer using social media" class="hero-image">
+                </div>
+            </section>
+
+            <!-- Network Selection -->
+            <section class="networks-section">
+                <div class="section-header">
+                    <h2 class="section-title">Choose Your Network</h2>
+                    <p class="section-subtitle">Select your mobile network to get started</p>
+                </div>
+
+                <div class="network-grid">
+                    <div class="network-card mtn-card" data-network="mtn">
+                        <div class="network-badge">Instant Delivery</div>
+                        <div class="network-logo-container">
+                            <img src="assets/images/mtn-logo.png" alt="MTN Ghana" class="network-logo">
+                        </div>
+                        <h3 class="network-name">MTN Ghana</h3>
+                        <p class="network-desc">Most popular network</p>
+                        <div class="network-glow mtn-glow"></div>
+                    </div>
+
+                    <div class="network-card telecel-card" data-network="telecel">
+                        <div class="network-badge">Instant Delivery</div>
+                        <div class="network-logo-container">
+                            <img src="assets/images/telecel-logo.png" alt="Telecel Ghana" class="network-logo">
+                        </div>
+                        <h3 class="network-name">Telecel Ghana</h3>
+                        <p class="network-desc">Reliable & affordable</p>
+                        <div class="network-glow telecel-glow"></div>
+                    </div>
+
+                    <div class="network-card airtel-card" data-network="airteltigo">
+                        <div class="network-badge">Instant Delivery</div>
+                        <div class="network-logo-container">
+                            <img src="assets/images/airteltigo-logo.png" alt="AirtelTigo" class="network-logo">
+                        </div>
+                        <h3 class="network-name">AirtelTigo</h3>
+                        <p class="network-desc">Fast & efficient</p>
+                        <div class="network-glow airtel-glow"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <section class="features-section">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Instant Delivery</h3>
+                    <p class="feature-desc">Get your data in seconds</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">100% Secure</h3>
+                    <p class="feature-desc">Safe & encrypted payments</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Best Prices</h3>
+                    <p class="feature-desc">Affordable rates guaranteed</p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-view="home">
+                <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="2" />
+                </svg>
+                <span class="nav-label">Home</span>
+            </button>
+            <button class="nav-item" data-view="buy">
+                <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                    <path d="M12 8v8m-4-4h8" stroke="currentColor" stroke-width="2" />
+                </svg>
+                <span class="nav-label">Buy</span>
+            </button>
+            <button class="nav-item" data-view="wallet">
+                <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="6" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" />
+                    <circle cx="16" cy="13" r="2" fill="currentColor" />
+                </svg>
+                <span class="nav-label">Wallet</span>
+            </button>
+            <button class="nav-item" data-view="history">
+                <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                    <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" />
+                </svg>
+                <span class="nav-label">History</span>
+            </button>
+            <button class="nav-item" data-view="profile">
+                <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" />
+                    <path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" stroke="currentColor" stroke-width="2" />
+                </svg>
+                <span class="nav-label">Profile</span>
+            </button>
+        </nav>
+
+        <!-- Floating Buy Button (Mobile) -->
+        <button class="fab" id="fabBuyBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="currentColor" />
+            </svg>
+            <span>Buy Data</span>
+        </button>
+
+    </div>
+
+    <!-- Purchase Modal -->
+    <div class="modal" id="purchaseModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Buy Data</h3>
+                <button class="modal-close" id="closePurchaseModal">×</button>
+            </div>
+            <div class="modal-body" id="purchaseModalBody">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content success-modal">
+            <div class="success-animation">
+                <svg class="checkmark" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none" />
+                    <path class="checkmark-check" fill="none" d="M14 27l7.5 7.5L38 18" />
+                </svg>
+            </div>
+            <h3 class="success-title">Purchase Successful!</h3>
+            <p class="success-message" id="successMessage"></p>
+            <button class="btn-primary" id="closeSuccessModal">Done</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

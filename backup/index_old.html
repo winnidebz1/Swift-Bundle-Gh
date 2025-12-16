@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description"
+        content="SwiftBundle Ghana - Fast, affordable data bundles for Ghana's top networks. Data that moves as fast as you do.">
+    <meta name="theme-color" content="#6C5CE7">
+
+    <title>SwiftBundle Ghana - Data that moves as fast as you do</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+    <!-- Mobile App Container -->
+    <div id="app" class="app-container">
+
+        <!-- Top Bar (Mobile) -->
+        <header class="top-bar">
+            <div class="top-bar-content">
+                <div class="brand">
+                    <div class="brand-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <span class="brand-name">SwiftBundle</span>
+                </div>
+                <div class="top-bar-actions">
+                    <button class="wallet-btn" id="walletBtn">
+                        <span class="wallet-label">Wallet</span>
+                        <span class="wallet-balance" id="walletBalance">GH₵ 0.00</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content" id="mainContent">
+
+            <!-- Home View -->
+            <section class="view active" id="homeView">
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Buy Data.<br>Instantly.</h1>
+                        <p class="hero-subtitle">Fast, affordable data bundles for Ghana's top networks.</p>
+                    </div>
+                    <div class="hero-illustration" id="heroIllustration"
+                        style="background-image: url('assets/images/hero-illustration.png'); background-size: cover; background-position: center;">
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-value">Instant</div>
+                        <div class="stat-label">Delivery</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔒</div>
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Secure</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-value">Best</div>
+                        <div class="stat-label">Prices</div>
+                    </div>
+                </div>
+
+                <!-- Network Selector -->
+                <div class="section-header">
+                    <h2 class="section-title">Choose Your Network</h2>
+                    <p class="section-subtitle">Select your mobile network to get started</p>
+                </div>
+
+                <div class="network-grid">
+                    <div class="network-card mtn" data-network="mtn">
+                        <div class="network-badge">Instant Delivery</div>
+                        <div class="network-logo" id="mtnLogo"></div>
+                        <div class="network-info">
+                            <h3 class="network-name">MTN Ghana</h3>
+                            <p class="network-desc">Most popular network</p>
+                        </div>
+                        <div class="network-arrow">→</div>
+                    </div>
+
+                    <div class="network-card telecel" data-network="telecel">
+                        <div class="network-badge">Instant Delivery</div>
+                        <div class="network-logo" id="telecelLogo"></div>
+                        <div class="network-info">
+                            <h3 class="network-name">Telecel Ghana</h3>
+                            <p class="network-desc">Reliable & affordable</p>
+                        </div>
+                        <div class="network-arrow">→</div>
+                    </div>
+
+                    <div class="network-card airteltigo" data-network="airteltigo">
+                        <div class="network-badge">Instant Delivery</div>
+                        <div class="network-logo" id="airteltigoLogo"></div>
+                        <div class="network-info">
+                            <h3 class="network-name">AirtelTigo</h3>
+                            <p class="network-desc">Fast & efficient</p>
+                        </div>
+                        <div class="network-arrow">→</div>
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <div class="section-header">
+                    <h2 class="section-title">Recent Activity</h2>
+                </div>
+                <div class="recent-transactions" id="recentTransactions">
+                    <div class="empty-state">
+                        <div class="empty-icon">📊</div>
+                        <p>No recent transactions</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Buy View -->
+            <section class="view" id="buyView">
+                <div class="view-header">
+                    <button class="back-btn" id="backBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                    <h2 class="view-title">Buy Data</h2>
+                </div>
+
+                <div class="purchase-flow" id="purchaseFlow">
+                    <!-- Step 1: Network Selection -->
+                    <div class="purchase-step active" data-step="1">
+                        <div class="step-indicator">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Choose Network</div>
+                        </div>
+                        <div class="network-selection" id="networkSelection"></div>
+                    </div>
+
+                    <!-- Step 2: Bundle Selection -->
+                    <div class="purchase-step" data-step="2">
+                        <div class="step-indicator">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Select Bundle</div>
+                        </div>
+                        <div class="bundle-selection" id="bundleSelection"></div>
+                    </div>
+
+                    <!-- Step 3: Phone Number -->
+                    <div class="purchase-step" data-step="3">
+                        <div class="step-indicator">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Enter Number</div>
+                        </div>
+                        <div class="phone-input-container">
+                            <input type="tel" class="phone-input" id="phoneInput" placeholder="0XX XXX XXXX"
+                                maxlength="10">
+                            <button class="save-number-btn" id="saveNumberBtn">Save for later</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Confirmation -->
+                    <div class="purchase-step" data-step="4">
+                        <div class="step-indicator">
+                            <div class="step-number">4</div>
+                            <div class="step-label">Confirm Purchase</div>
+                        </div>
+                        <div class="purchase-summary" id="purchaseSummary"></div>
+                    </div>
+                </div>
+
+                <!-- Sticky Purchase Button -->
+                <div class="sticky-action">
+                    <button class="primary-btn" id="continueBtn">Continue</button>
+                </div>
+            </section>
+
+            <!-- Wallet View -->
+            <section class="view" id="walletView">
+                <div class="view-header">
+                    <h2 class="view-title">My Wallet</h2>
+                </div>
+
+                <div class="wallet-card">
+                    <div class="wallet-balance-display">
+                        <span class="balance-label">Available Balance</span>
+                        <h1 class="balance-amount" id="balanceAmount">GH₵ 0.00</h1>
+                    </div>
+                    <button class="fund-wallet-btn" id="fundWalletBtn">
+                        <span>Fund Wallet</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 5v14m7-7H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="section-header">
+                    <h2 class="section-title">Payment Methods</h2>
+                </div>
+                <div class="payment-methods">
+                    <div class="payment-card momo-mtn">
+                        <div class="payment-logo" id="momoMtnLogo"></div>
+                        <span class="payment-name">MTN MoMo</span>
+                    </div>
+                    <div class="payment-card momo-telecel">
+                        <div class="payment-logo" id="momoTelecelLogo"></div>
+                        <span class="payment-name">Telecel Cash</span>
+                    </div>
+                    <div class="payment-card momo-airteltigo">
+                        <div class="payment-logo" id="momoAirteltigoLogo"></div>
+                        <span class="payment-name">AirtelTigo Money</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History View -->
+            <section class="view" id="historyView">
+                <div class="view-header">
+                    <h2 class="view-title">Transaction History</h2>
+                </div>
+                <div class="history-list" id="historyList">
+                    <div class="empty-state">
+                        <div class="empty-icon">📜</div>
+                        <p>No transaction history yet</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile View -->
+            <section class="view" id="profileView">
+                <div class="view-header">
+                    <h2 class="view-title">Profile</h2>
+                </div>
+                <div class="profile-content">
+                    <div class="profile-avatar">
+                        <div class="avatar-circle">
+                            <span id="avatarInitials">U</span>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h3 id="userName">Guest User</h3>
+                        <p id="userPhone">Not logged in</p>
+                    </div>
+                    <div class="profile-menu">
+                        <button class="profile-menu-item">
+                            <span>Account Settings</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </button>
+                        <button class="profile-menu-item">
+                            <span>Saved Numbers</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </button>
+                        <button class="profile-menu-item">
+                            <span>Help & Support</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-view="home">
+                <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                </svg>
+                <span class="nav-label">Home</span>
+            </button>
+            <button class="nav-item" data-view="buy">
+                <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                    <path d="M12 8v8m-4-4h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <span class="nav-label">Buy</span>
+            </button>
+            <button class="nav-item" data-view="wallet">
+                <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="6" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" />
+                    <path d="M3 10h18M7 6V4a2 2 0 012-2h6a2 2 0 012 2v2" stroke="currentColor" stroke-width="2" />
+                </svg>
+                <span class="nav-label">Wallet</span>
+            </button>
+            <button class="nav-item" data-view="history">
+                <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                    <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <span class="nav-label">History</span>
+            </button>
+            <button class="nav-item" data-view="profile">
+                <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" />
+                    <path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                </svg>
+                <span class="nav-label">Profile</span>
+            </button>
+        </nav>
+
+        <!-- Floating Action Button -->
+        <button class="fab" id="fabBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="currentColor" />
+            </svg>
+            <span>Buy Data</span>
+        </button>
+
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content slide-up">
+            <div class="modal-header">
+                <h3 class="modal-title">Fund Wallet</h3>
+                <button class="modal-close" id="closePaymentModal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="amount-input-container">
+                    <label>Enter Amount</label>
+                    <input type="number" class="amount-input" id="fundAmount" placeholder="0.00">
+                    <span class="currency-symbol">GH₵</span>
+                </div>
+                <div class="payment-method-selector">
+                    <label>Select Payment Method</label>
+                    <div class="payment-options">
+                        <button class="payment-option" data-method="mtn-momo">
+                            <div class="payment-option-logo" id="paymentMtnLogo"></div>
+                            <span>MTN MoMo</span>
+                        </button>
+                        <button class="payment-option" data-method="telecel-cash">
+                            <div class="payment-option-logo" id="paymentTelecelLogo"></div>
+                            <span>Telecel Cash</span>
+                        </button>
+                        <button class="payment-option" data-method="airteltigo-money">
+                            <div class="payment-option-logo" id="paymentAirteltigoLogo"></div>
+                            <span>AirtelTigo Money</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="primary-btn" id="proceedPaymentBtn">Proceed to Payment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content success-content">
+            <div class="success-animation" id="successAnimation"></div>
+            <h3 class="success-title">Purchase Successful!</h3>
+            <p class="success-message" id="successMessage"></p>
+            <button class="primary-btn" id="closeSuccessModal">Done</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/purchase.js"></script>
+    <script src="js/wallet.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+
+</html>
