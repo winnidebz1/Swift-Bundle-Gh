@@ -375,101 +375,222 @@ body {
     animation: fadeInUp 0.8s ease-out;
 }
 
+/* ========== Mobile Responsive Design ========== */
+
+/* Base mobile styles (all phones) */
 @media (max-width: 768px) {
     .hero {
-        padding: var(--space-lg) var(--space-md);
-        display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: var(--space-md);
+        padding: clamp(1rem, 4vw, 2rem) clamp(0.75rem, 3vw, 1.5rem);
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1rem, 3vw, 1.5rem);
         align-items: center;
+        text-align: center;
     }
 
     .hero-content {
         order: 1;
+        width: 100%;
     }
 
     .hero-tagline {
-        font-size: 0.5625rem;
-        margin-bottom: 0.25rem;
-        letter-spacing: 0.05em;
+        font-size: clamp(0.625rem, 2vw, 0.75rem);
+        margin-bottom: clamp(0.25rem, 1vw, 0.5rem);
     }
 
     .hero-title {
-        font-size: 1.25rem;
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
         line-height: 1.15;
-        margin-bottom: 0.375rem;
+        margin-bottom: clamp(0.5rem, 2vw, 0.75rem);
     }
 
     .hero-subtitle {
-        font-size: 0.6875rem;
-        margin-bottom: var(--space-sm);
-        line-height: 1.35;
+        font-size: clamp(0.875rem, 3vw, 1rem);
+        margin-bottom: clamp(0.75rem, 3vw, 1.25rem);
+        line-height: 1.4;
+        max-width: 100%;
     }
 
     .hero-cta {
         flex-direction: column;
-        gap: 0.375rem;
+        gap: clamp(0.5rem, 2vw, 0.75rem);
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     .btn-primary,
     .btn-secondary {
-        padding: 0.625rem 1rem;
-        font-size: 0.75rem;
-        min-height: 40px;
+        padding: clamp(0.75rem, 3vw, 1rem) clamp(1.25rem, 4vw, 1.75rem);
+        font-size: clamp(0.875rem, 3vw, 1rem);
+        min-height: clamp(44px, 10vw, 52px);
         width: 100%;
     }
 
     .hero-visual {
         order: 2;
-        height: 280px;
-        margin: 0;
+        height: clamp(200px, 50vw, 350px);
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
     .hero-image {
-        max-width: 100%;
+        max-width: clamp(70%, 80vw, 90%);
         max-height: 100%;
         object-fit: contain;
     }
-}
 
-/* Small mobile devices */
-@media (max-width: 480px) {
-    .hero {
-        padding: var(--space-md) var(--space-sm);
-        gap: var(--space-sm);
-        grid-template-columns: 1.3fr 1fr;
+    /* Network section mobile */
+    .networks-section {
+        padding: clamp(1.5rem, 4vw, 2.5rem) clamp(0.75rem, 3vw, 1.5rem);
     }
 
-    .hero-tagline {
-        font-size: 0.5rem;
+    .section-title {
+        font-size: clamp(1.25rem, 5vw, 1.75rem);
+    }
+
+    .section-subtitle {
+        font-size: clamp(0.8125rem, 3vw, 0.9375rem);
+    }
+
+    .network-grid {
+        gap: clamp(0.75rem, 3vw, 1.25rem);
+    }
+
+    .network-card {
+        padding: clamp(1.25rem, 4vw, 1.75rem);
+        min-height: clamp(160px, 35vw, 200px);
+    }
+
+    .network-logo-container {
+        width: clamp(60px, 15vw, 80px);
+        height: clamp(60px, 15vw, 80px);
+    }
+
+    .network-name {
+        font-size: clamp(1rem, 4vw, 1.25rem);
+    }
+
+    .network-desc {
+        font-size: clamp(0.75rem, 2.5vw, 0.875rem);
+    }
+
+    /* Features section mobile */
+    .features-section {
+        padding: clamp(1.5rem, 4vw, 2.5rem) clamp(0.75rem, 3vw, 1.5rem);
+        gap: clamp(0.75rem, 3vw, 1.25rem);
+    }
+
+    .feature-card {
+        padding: clamp(1.25rem, 4vw, 1.75rem);
+    }
+
+    .feature-icon {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .feature-title {
+        font-size: clamp(0.9375rem, 3.5vw, 1.125rem);
+    }
+
+    .feature-desc {
+        font-size: clamp(0.75rem, 2.5vw, 0.875rem);
+    }
+}
+
+/* Very small phones (320px - 375px) */
+@media (max-width: 375px) {
+    .hero {
+        padding: 1rem 0.75rem;
     }
 
     .hero-title {
-        font-size: 1rem;
-        margin-bottom: 0.25rem;
-    }
-
-    .hero-subtitle {
-        font-size: 0.625rem;
-        margin-bottom: 0.375rem;
-    }
-
-    .hero-cta {
-        gap: 0.25rem;
+        font-size: 1.5rem;
     }
 
     .btn-primary,
     .btn-secondary {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.6875rem;
-        min-height: 36px;
+        min-height: 44px;
+        font-size: 0.875rem;
     }
 
     .hero-visual {
-        height: 240px;
+        height: 180px;
+    }
+}
+
+/* Small phones (376px - 414px) */
+@media (min-width: 376px) and (max-width: 414px) {
+    .hero-title {
+        font-size: 1.875rem;
+    }
+
+    .hero-visual {
+        height: 220px;
+    }
+}
+
+/* Medium phones (415px - 480px) */
+@media (min-width: 415px) and (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-visual {
+        height: 260px;
+    }
+}
+
+/* Large phones (481px - 600px) */
+@media (min-width: 481px) and (max-width: 600px) {
+    .hero-title {
+        font-size: 2.25rem;
+    }
+
+    .hero-visual {
+        height: 300px;
+    }
+
+    .network-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Phablets/Small tablets (601px - 768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+    .hero {
+        padding: 2rem 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-visual {
+        height: 350px;
+    }
+
+    .hero-cta {
+        flex-direction: row;
+        max-width: 100%;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: auto;
+        flex: 1;
+    }
+
+    .network-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features-section {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
