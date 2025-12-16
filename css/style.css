@@ -386,6 +386,40 @@ body {
     }
 }
 
+/* ========== Line Bar Section ========== */
+.line-bar-section {
+    position: relative;
+    z-index: 2;
+    margin-top: -120px;
+    padding: var(--space-xl) 0;
+    background: transparent;
+}
+
+.line-bar-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+.line-bar {
+    height: 6px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    box-shadow: var(--glow-primary);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .line-bar-section {
+        margin-top: -60px;
+        padding: var(--space-md) 0;
+    }
+
+    .line-bar {
+        height: 4px;
+    }
+}
+
 /* ========== Networks Section ========== */
 .networks-section {
     padding: var(--space-2xl) var(--space-lg);
